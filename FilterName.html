@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+<style>
+	p{
+		background-color:rgb(211, 204, 139);	
+	}
+	.demo{
+		box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+		padding: 3px 0px 3px 3px;
+		margin: 5px 1px 3px 0px;
+		border: 1px solid rgba(81, 203, 238, 1);	
+	}
+	body{
+		background-color:rgb(128,128,128);	
+	}
+</style>
+<div ng-app ="myApp" ng-controller="myCtrl">
+<p>Type a letter in the input field, and the list will shrink/grow depending on the match:</p>
+
+Type:<input class="demo" type='text' ng-model="shortName">
+
+<ul>
+	<li ng-repeat = "nam in names | filter :shortName ">
+    {{nam}}
+    </li>
+</ul>
+	<script>
+    angular.module("myApp",[]).controller("myCtrl",function($scope){
+    			$scope.names = [
+                'Mohit',
+                'Avani',
+                'Rekha',
+                'Bipin',
+                'Hirva',
+                'Kashyap',
+                'Kalindi'
+                ];
+    
+    
+    });	
+    
+    </script>
+
+<p>The list will only consists of names matching the filter.</p>
+
+
+</body>
+</html>
